@@ -1,3 +1,25 @@
+<?php
+include_once "connection_database.php";
+if($_SERVER['REQUEST_METHOD']=="POST") {
+    //echo "<h1>".$_POST['name']."</h1>";
+    if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['image']) && isset($_POST['password']) )
+    {
+        $data = [
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'image' => $_POST['image'],
+            'password' => $_POST['password'],
+        ];
+        $sql = "INSERT INTO tbl_users (name, email, image, password) VALUES (:name, :email, :image, :password)";
+        $stmt= $dbh->prepare($sql);
+        $stmt->execute($data);
+        header('Location: /users.php');
+        exit();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
