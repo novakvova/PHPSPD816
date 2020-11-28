@@ -15,6 +15,13 @@
     <?php include "_sidebar.php"; ?>
 
     <div class="c-wrapper c-fixed-components">
+        <?php
+        include_once "BreadcrumbItem.php";
+        //$bItem = new BreadcrumbItem;
+        $breadcrumbs = array();
+        $breadcrumbs[] = new BreadcrumbItem("Головнa", true);
+        ?>
+
         <?php include "_subheader.php"; ?>
       <div class="c-body">
         <main class="c-main">
